@@ -68,6 +68,15 @@ func main() {
 	default:
 		fmt.Printf("The result of division is %v with remainder %v", result, remainder)
 	}
+
+	switch remainder {
+	case 0:
+		fmt.Printf("The division was exact")
+	case 1, 2:
+		fmt.Printf("The division was close")
+	default:
+		fmt.Printf("The division was not close")
+	}
 }
 
 func printMe(printValue string) {
