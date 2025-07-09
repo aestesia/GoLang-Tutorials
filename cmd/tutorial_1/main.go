@@ -113,8 +113,16 @@ func main() {
 		fmt.Println("invalid name")
 	}
 
-	for name := range myMap2 {
-		fmt.Printf("Name: %v\n", name)
+	for name, age := range myMap2 {
+		fmt.Printf("Name: %v Age: %v\n", name, age)
+	}
+
+	for i, v := range intArr {
+		fmt.Printf("Index: %v, Value: %v \n", i, v)
+	}
+
+	for i := 0; i < 10; i++ {
+		fmt.Println(i)
 	}
 
 }
