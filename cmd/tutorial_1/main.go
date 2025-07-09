@@ -45,38 +45,78 @@ func main() {
 	// const myConst string = "can't be changed"
 	// fmt.Println(myConst)
 
-	var printValue string = "Hello World"
-	printMe(printValue)
+	// -------------------------------------------------------------------
+	// var printValue string = "Hello World"
+	// printMe(printValue)
 
-	var numerator int = 11
-	var denominator int = 2
-	var result, remainder, err = intDivision(numerator, denominator)
+	// var numerator int = 11
+	// var denominator int = 2
+	// var result, remainder, err = intDivision(numerator, denominator)
 
-	// if err != nil {
+	// // if err != nil {
+	// // 	fmt.Println(err.Error())
+	// // } else if remainder == 0 {
+	// // 	fmt.Println("the result of division is %v", result)
+	// // } else {
+	// // 	fmt.Println("The result of division is %v with remainder %v", result, remainder)
+	// // }
+
+	// switch {
+	// case err != nil:
 	// 	fmt.Println(err.Error())
-	// } else if remainder == 0 {
-	// 	fmt.Println("the result of division is %v", result)
-	// } else {
-	// 	fmt.Println("The result of division is %v with remainder %v", result, remainder)
+	// case remainder == 0:
+	// 	fmt.Printf("the result of division is %v", result)
+	// default:
+	// 	fmt.Printf("The result of division is %v with remainder %v", result, remainder)
 	// }
 
-	switch {
-	case err != nil:
-		fmt.Println(err.Error())
-	case remainder == 0:
-		fmt.Printf("the result of division is %v", result)
-	default:
-		fmt.Printf("The result of division is %v with remainder %v", result, remainder)
+	// switch remainder {
+	// case 0:
+	// 	fmt.Printf("The division was exact")
+	// case 1, 2:
+	// 	fmt.Printf("The division was close")
+	// default:
+	// 	fmt.Printf("The division was not close")
+	// }
+
+	// -------------------------------------------------------------------
+
+	//var intArr [3]int32 = [3]int32{1,2,3}
+	//intArr := [3]int32{1, 2, 3}
+	intArr := [...]int32{1, 2, 3}
+	// intArr[1] = 123
+	// fmt.Println(intArr[0])
+	// fmt.Println(intArr[1:3])
+	fmt.Println(intArr)
+
+	var intSlice []int32 = []int32{4, 5, 6}
+	fmt.Printf("The length is %v with capacity %v", len(intSlice), cap(intSlice))
+	intSlice = append(intSlice, 7)
+	fmt.Printf("\nThe length is %v with capacity %v", len(intSlice), cap(intSlice))
+
+	var intSlice2 []int32 = []int32{8, 9}
+	intSlice2 = append(intSlice, intSlice2...)
+	fmt.Println(intSlice)
+
+	var intSlice3 []int32 = make([]int32, 3, 10)
+	fmt.Println(intSlice3)
+
+	var myMap map[string]uint8 = make(map[string]uint8)
+	fmt.Println(myMap)
+
+	var myMap2 = map[string]uint8{"Adam": 23, "Sarah": 45}
+	fmt.Println(myMap2["Adam"])
+	var age, ok = myMap2["Jason"]
+	if ok {
+		fmt.Println("The age is %v", age)
+	} else {
+		fmt.Println("invalid name")
 	}
 
-	switch remainder {
-	case 0:
-		fmt.Printf("The division was exact")
-	case 1, 2:
-		fmt.Printf("The division was close")
-	default:
-		fmt.Printf("The division was not close")
+	for name := range myMap2 {
+		fmt.Printf("Name: %v\n", name)
 	}
+
 }
 
 func printMe(printValue string) {
