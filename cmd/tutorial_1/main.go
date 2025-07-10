@@ -1,8 +1,8 @@
 package main
 
 import (
-	"errors"
 	"fmt"
+	"strings"
 )
 
 func main() {
@@ -137,19 +137,27 @@ func main() {
 	var myRune = 'a'
 	fmt.Printf("\nmyRune = %v", myRune)
 
-}
-
-func printMe(printValue string) {
-	fmt.Println(printValue)
-}
-
-func intDivision(numerator int, denominator int) (int, int, error) {
-	var err error
-	if denominator == 0 {
-		err = errors.New("Cannot divide by 0")
-		return 0, 0, err
+	var strSlice = []string{"t", "e", "s", "t", "i", "n", "g"}
+	var strBuilder strings.Builder
+	for i := range strSlice {
+		//catStr += strSlice[i]
+		strBuilder.WriteString(strSlice[i])
 	}
-	var result int = numerator / denominator
-	var remainder int = numerator % denominator
-	return result, remainder, err
+	var catStr = strBuilder.String()
+	fmt.Printf("\n%v", catStr)
 }
+
+// func printMe(printValue string) {
+// 	fmt.Println(printValue)
+// }
+
+// func intDivision(numerator int, denominator int) (int, int, error) {
+// 	var err error
+// 	if denominator == 0 {
+// 		err = errors.New("Cannot divide by 0")
+// 		return 0, 0, err
+// 	}
+// 	var result int = numerator / denominator
+// 	var remainder int = numerator % denominator
+// 	return result, remainder, err
+// }
